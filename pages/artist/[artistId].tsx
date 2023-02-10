@@ -28,19 +28,29 @@ const Artist = () => {
             </Head>
 
             <Box
-                maxWidth="80rem"
-                margin="3rem auto 0 auto"
                 sx={{
+                    margin: "3rem auto 0 auto",
+                    maxWidth: "80rem",
+                    paddingX: "2rem",
                     overflow: "hidden",
                     display: "flex",
-                    gap: '4rem'
+                    gap: { xs: "2.5rem", sm: "4rem" },
+                    flexDirection: {
+                        xs: "column",
+                        sm: "row",
+                    },
                 }}
             >
                 {artist?.images && (
-                    <Box maxWidth="15rem">
+                    <Box maxWidth={{ xs: "10.5rem", md: "15rem" }}>
                         <img
-                            src={artist?.images[0]?.url || '/empty.jpg'}
-                            style={{ width: "100%", borderRadius: "100%" }}
+                            src={artist?.images[0]?.url || "/empty.jpg"}
+                            style={{
+                                width: "100%",
+                                borderRadius: "100%",
+                                aspectRatio: "1/1",
+                                objectFit: "cover",
+                            }}
                             alt={artist.name}
                         />
                     </Box>
@@ -57,7 +67,21 @@ const Artist = () => {
                         >
                             <Certified /> Artista certificado
                         </Typography>
-                        <Typography variant="h2" mb="2rem" fontWeight={700}>
+                        <Typography
+                            variant="h2"
+                            sx={{
+                                fontSize: {
+                                    xs: "2.5rem",
+                                    sm: "4rem",
+                                },
+                                lineHeight: {
+                                    xs: "3rem",
+                                    sm: "5rem",
+                                },
+                                fontWeight: 700,
+                                mb: "2rem",
+                            }}
+                        >
                             {artist.name}
                         </Typography>
                         <Typography>

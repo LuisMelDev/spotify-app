@@ -13,6 +13,7 @@ interface State {
     artists: Artists;
     artist: ArtistAlbums;
     myAlbums: Album[];
+    loading: boolean;
     auth: (code?: string) => void;
     getArtists: () => void;
     getArtist: (id: string) => void;
@@ -33,11 +34,18 @@ export const useStore = create<State>()(
             artist: {} as ArtistAlbums,
             search: "",
             myAlbums: [],
+            loading: false,
             auth: (token) => {
                 set({ token: token });
             },
             logout: () => {
-                set({ token: "" });
+                set({
+                    token: "",
+                    page: 0,
+                    artist: {} as ArtistAlbums,
+                    artists: {} as Artists,
+                    search: "",
+                });
             },
             getArtists: async () => {
                 const { token, search, page } = get();
@@ -65,11 +73,12 @@ export const useStore = create<State>()(
             },
             onPaginate: (page) => {
                 set({
-                    page,
+                    page: page - 1,
                 });
                 get().getArtists();
             },
             getArtist: async (id) => {
+                set({ loading: true });
                 const { token } = get();
                 try {
                     const artist = await getArtistData({ token, id });
@@ -82,6 +91,7 @@ export const useStore = create<State>()(
                     }
                     console.log(error);
                 }
+                set({ loading: false });
             },
             clearArtist: () => {
                 set({

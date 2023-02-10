@@ -27,6 +27,7 @@ const Home = () => {
           </Head>
             <Box
                 sx={{
+                    px: "2.5rem",
                     pt: "3rem",
                     maxWidth: "42rem",
                     textAlign: "center",

@@ -8,6 +8,8 @@ import {
 import Link from "next/link";
 import { useStore } from "@/store/index";
 import { useRouter } from "next/router";
+import { Logout } from "icons/Logout";
+import { display } from "@mui/system";
 
 export const Navbar = () => {
     const router = useRouter();
@@ -17,18 +19,22 @@ export const Navbar = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ boxShadow: "none" }}>
                 <Toolbar>
-                    <Typography
-                        variant="h5"
-                        component="h1"
-                        sx={{ flexGrow: 1 }}
-                    >
-                        Spotify
-                    </Typography>
+                    <Link href="/" passHref legacyBehavior>
+                        <Typography
+                            variant="h5"
+                            component="h1"
+                            sx={{ flexGrow: 1 }}
+                        >
+                            Spotify
+                        </Typography>
+                    </Link>
                     {token && (
                         <Box
                             sx={{
                                 display: "flex",
-                                gap: "1.5rem",
+                                alignItems: "center",
+                                gap: { xs: ".5rem", lg: "1.5rem" },
+                                fontSize: { xs: ".8rem", sm: "1rem" },
                             }}
                         >
                             <Link href="/" passHref legacyBehavior>
@@ -50,7 +56,16 @@ export const Navbar = () => {
                                     router.push("/login");
                                 }}
                             >
-                                Cerrar sesión
+                                <Typography
+                                    display={{ xs: "none", sm: "block" }}
+                                >
+                                    Cerrar sesión
+                                </Typography>
+                                <Logout
+                                    sx={{
+                                        display: { xs: "block", sm: "none" },
+                                    }}
+                                />
                             </LinkComponent>
                         </Box>
                     )}
