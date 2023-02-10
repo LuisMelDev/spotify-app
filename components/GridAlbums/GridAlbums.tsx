@@ -6,7 +6,7 @@ import { CardAlbum } from "../CardAlbum/CardAlbum";
 
 export const GridAlbums = ({ artist }: { artist: ArtistAlbums }) => {
     return (
-        <Box maxWidth="80rem" margin="3rem auto 0 auto">
+        <Box maxWidth="80rem" paddingX='2rem' margin="3rem auto 0 auto">
             {artist?.name && (
                 <Box maxWidth="80rem" margin="3rem auto 0 auto">
                     <Typography>

@@ -24,11 +24,12 @@ const MyAlbums = () => {
     return (
         <Layout>
             <Head>
-                <title>Artist </title>
+                <title>My Albums </title>
             </Head>
 
             <Box
                 sx={{
+                    px: "2rem",
                     pt: "3rem",
                     maxWidth: "42rem",
                     textAlign: "center",

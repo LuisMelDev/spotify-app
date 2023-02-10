@@ -30,7 +30,7 @@ export const CardAlbum = ({ item }: { item: Album }) => {
     if(typeof window === 'undefined') return null;
 
     return (
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6} md={3}>
             <Card
                 sx={{
                     width: "100%",
@@ -41,7 +41,7 @@ export const CardAlbum = ({ item }: { item: Album }) => {
                 }}
             >
                 <CardMedia
-                    sx={{ height: 240, borderRadius: "24px" }}
+                    sx={{width: '100%', borderRadius: "24px", aspectRatio: '1/1', objectFit: 'cover' }}
                     image={item.images[0]?.url || '/empty.jpg'}
                     src={item.images[0]?.url || '/empty.jpg'}
                     title={item.name}

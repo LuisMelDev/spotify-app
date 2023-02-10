@@ -21,7 +21,7 @@ export default function Login() {
         if (token) {
             router.push("/");
         }
-        
+
         const access_token = router.asPath
             .split("&")[0]
             .replace("/login#access_token=", "");
@@ -50,14 +50,40 @@ export default function Login() {
                     sx={{
                         width: "100%",
                         display: "flex",
-                        justifyContent: "space-evenly",
+                        justifyContent: { xs: "center", lg: "space-evenly" },
+                        flexDirection: {
+                            xs: "column",
+                            md: "row",
+                        },
+                        paddingX: { xs: "2rem", sm: "5.5rem" },
+                        gap: { xs: "1.7rem", md: "3rem" },
                     }}
                 >
                     <Box>
-                        <Arrow sx={{ fontSize: "29rem" }} />
+                        <Arrow
+                            sx={{
+                                fontSize: {
+                                    xs: "13rem",
+                                    sm: "20rem",
+                                    lg: "29rem",
+                                },
+                            }}
+                        />
                     </Box>
                     <Box sx={{ maxWidth: "37rem" }}>
-                        <Typography variant="h2">
+                        <Typography
+                            variant="h2"
+                            sx={{
+                                fontSize: {
+                                    xs: "2.5rem",
+                                    sm: "4rem",
+                                },
+                                lineHeight: {
+                                    xs: "3rem",
+                                    sm: "5rem",
+                                },
+                            }}
+                        >
                             Disfruta de la{" "}
                             <Typography
                                 variant="inherit"
@@ -67,13 +93,15 @@ export default function Login() {
                                 mejor música
                             </Typography>
                         </Typography>
-                        <Typography sx={{ mt: "2.2rem", maxWidth: "21rem" }}>
+                        <Typography
+                            sx={{ mt: "2.2rem", maxWidth: { lg: "21rem" } }}
+                        >
                             Accede a tu cuenta para guardar tus albumes
                             favoritos.
                         </Typography>
                         <Typography
                             sx={{
-                                mt: "6.5rem",
+                                mt: { xs: "2.2rem", sm: "6.5rem" },
                                 maxWidth: "21rem",
                                 cursor: "pointer",
                                 display: "flex",
@@ -93,7 +121,6 @@ export default function Login() {
                     </Box>
                 </Box>
             </Box>
-            </Layout>
+        </Layout>
     );
 }
-

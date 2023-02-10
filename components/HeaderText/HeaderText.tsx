@@ -19,7 +19,20 @@ export const HeaderText: FC<HeaderTextProps> = ({
                 margin: "0 auto",
             }}
         >
-            <Typography variant="h2">
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: {
+                        xs: "2.5rem",
+                        sm: "4rem",
+                    },
+                    lineHeight: {
+                        xs: "3rem",
+                        sm: "5rem",
+                    },
+                    textAlign: { xs: "initial", sm: "center" },
+                }}
+            >
                 {whiteText}{" "}
                 <Typography
                     variant="inherit"
@@ -29,7 +42,14 @@ export const HeaderText: FC<HeaderTextProps> = ({
                     {coloredText}
                 </Typography>
             </Typography>
-            <Typography sx={{ mt: "1.6rem" }}>{text}</Typography>
+            <Typography
+                sx={{
+                    mt: "1.6rem",
+                    textAlign: { xs: "justify", sm: "center" },
+                }}
+            >
+                {text}
+            </Typography>
         </Box>
     );
 };
