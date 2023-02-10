@@ -18,7 +18,7 @@ export const Layout: FC<any> = ({ children }) => {
             {isHydrated && !loading ? (
                 <>
                     <Navbar />
-                    <main style={{ paddingBottom: "1.5rem" }}>{children}</main>
+                    <main>{children}</main>
                 </>
             ) : (
                 <Box
