@@ -8,7 +8,6 @@ export const Layout: FC<any> = ({ children }) => {
     const [isHydrated, setIsHydrated] = useState(false);
     const { loading } = useStore();
 
-    //Wait till NextJS rehydration completes
     useEffect(() => {
         setIsHydrated(true);
     }, []);

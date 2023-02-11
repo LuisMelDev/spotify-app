@@ -8,13 +8,11 @@ import {
 import Link from "next/link";
 import { useStore } from "@/store/index";
 import { useRouter } from "next/router";
-import { Logout } from "icons/Logout";
-import { display } from "@mui/system";
+import { Logout } from "@/icons/index";
 
 export const Navbar = () => {
     const router = useRouter();
     const { token, logout } = useStore();
-
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ boxShadow: "none" }}>

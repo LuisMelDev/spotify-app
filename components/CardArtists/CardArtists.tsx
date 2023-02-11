@@ -6,7 +6,14 @@ import { memo } from "react";
 export const CardArtists = memo(({ item }: { item: Item }) => {
     const router = useRouter();
     return (
-        <Grid item xs={12} sm={6} md={3} onClick={() => router.push(`/artist/${item.id}`)}>
+        <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            onClick={() => router.push(`/artist/${item.id}`)}
+            data-testid="card-artist"
+        >
             <Card
                 sx={{
                     width: "100%",
@@ -21,9 +28,14 @@ export const CardArtists = memo(({ item }: { item: Item }) => {
                 }}
             >
                 <CardMedia
-                    sx={{ width: '100%', borderRadius: "24px", aspectRatio: '1/1', objectFit: 'cover' }}
-                    image={item.images[0]?.url || '/empty.jpg'}
-                    title={item.name}
+                    sx={{
+                        width: "100%",
+                        borderRadius: "24px",
+                        aspectRatio: "1/1",
+                        objectFit: "cover",
+                    }}
+                    image={item?.images[0]?.url || "/empty.jpg"}
+                    title={item?.name}
                 />
                 <CardContent>
                     <Typography variant="h5" mb="1rem" noWrap>

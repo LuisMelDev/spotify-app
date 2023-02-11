@@ -23,7 +23,7 @@ export const GridArtists = () => {
                     ))}
             </Grid>
             {artists.total !== 0 && (
-                <Box mt="1rem">
+                <Box mt="1rem" pb="2rem">
                     <Pagination
                     siblingCount={0}
                         page={page + 1}

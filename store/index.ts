@@ -82,7 +82,6 @@ export const useStore = create<State>()(
                 const { token } = get();
                 try {
                     const artist = await getArtistData({ token, id });
-                    console.log(artist);
                     set({ artist });
                 } catch (error: any) {
                     if (error.response.status === 401) {

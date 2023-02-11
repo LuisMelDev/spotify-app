@@ -1,8 +1,8 @@
 import Head from "next/head";
 
 import { Layout } from "../components";
-import { ReactElement, useEffect } from "react";
-import { Box, Typography, Link } from "@mui/material";
+import { useEffect } from "react";
+import { Box, Typography } from "@mui/material";
 import { Arrow } from "icons";
 import { useRouter } from "next/router";
 import { useStore } from "../store/index";
