@@ -27,8 +27,6 @@ export const CardAlbum = ({ item }: { item: Album }) => {
         [myAlbums, item]
     );
 
-    if(typeof window === 'undefined') return null;
-
     return (
         <Grid item xs={12} sm={6} md={3}>
             <Card
