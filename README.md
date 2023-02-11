@@ -29,11 +29,16 @@ yarn install
 
 #### 3. ENV
 
-Get an Spotify Client ID and set callback host on spotify dashboard then generate a `.env.local` file at the project root with the next content:
+Get an Spotify Client ID on spotify dashboard then generate a `.env.local` file at the project root with the next content:
 
 ```
-NEXT_PUBLIC_SPOTIFY_CALLBACK_HOST=
 NEXT_PUBLIC_SPOTIFY_CLIENT=
+```
+
+set callback host on spotify dashboard such as:
+
+```
+{url_page}/login
 ```
 
 #### 4. Execution

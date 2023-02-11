@@ -1,20 +1,21 @@
 import Head from "next/head";
 
 import { Layout } from "../components";
-import { useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { ReactElement, useEffect } from "react";
+import { Box, Typography, Link } from "@mui/material";
 import { Arrow } from "icons";
 import { useRouter } from "next/router";
 import { useStore } from "../store/index";
 
-const spotifyUrl = `https://accounts.spotify.com/authorize?client_id=${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT}&response_type=token&redirect_uri=${process.env.NEXT_PUBLIC_SPOTIFY_CALLBACK_HOST}&scope=user-read-private`;
+const spotifyUrl = (url: string) =>
+    `https://accounts.spotify.com/authorize?client_id=${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT}&response_type=token&redirect_uri=${url}&scope=user-read-private`;
 
 export default function Login() {
     const router = useRouter();
     const { auth, token } = useStore();
 
     const handleLogin = () => {
-        window.location.replace(spotifyUrl);
+        window.location.replace(spotifyUrl(document.URL));
     };
 
     useEffect(() => {
@@ -50,40 +51,14 @@ export default function Login() {
                     sx={{
                         width: "100%",
                         display: "flex",
-                        justifyContent: { xs: "center", lg: "space-evenly" },
-                        flexDirection: {
-                            xs: "column",
-                            md: "row",
-                        },
-                        paddingX: { xs: "2rem", sm: "5.5rem" },
-                        gap: { xs: "1.7rem", md: "3rem" },
+                        justifyContent: "space-evenly",
                     }}
                 >
                     <Box>
-                        <Arrow
-                            sx={{
-                                fontSize: {
-                                    xs: "13rem",
-                                    sm: "20rem",
-                                    lg: "29rem",
-                                },
-                            }}
-                        />
+                        <Arrow sx={{ fontSize: "29rem" }} />
                     </Box>
                     <Box sx={{ maxWidth: "37rem" }}>
-                        <Typography
-                            variant="h2"
-                            sx={{
-                                fontSize: {
-                                    xs: "2.5rem",
-                                    sm: "4rem",
-                                },
-                                lineHeight: {
-                                    xs: "3rem",
-                                    sm: "5rem",
-                                },
-                            }}
-                        >
+                        <Typography variant="h2">
                             Disfruta de la{" "}
                             <Typography
                                 variant="inherit"
@@ -93,15 +68,13 @@ export default function Login() {
                                 mejor música
                             </Typography>
                         </Typography>
-                        <Typography
-                            sx={{ mt: "2.2rem", maxWidth: { lg: "21rem" } }}
-                        >
+                        <Typography sx={{ mt: "2.2rem", maxWidth: "21rem" }}>
                             Accede a tu cuenta para guardar tus albumes
                             favoritos.
                         </Typography>
                         <Typography
                             sx={{
-                                mt: { xs: "2.2rem", sm: "6.5rem" },
+                                mt: "6.5rem",
                                 maxWidth: "21rem",
                                 cursor: "pointer",
                                 display: "flex",
