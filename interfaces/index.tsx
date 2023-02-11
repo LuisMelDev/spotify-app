@@ -32,7 +32,7 @@ export interface Artists {
     limit: number;
     next: string;
     offset: number;
-    previous: string;
+    previous: string | null;
     total: number;
 }
 
