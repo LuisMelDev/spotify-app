@@ -1,29 +1,51 @@
-# Next.js + Jest
+# Frontend Challenge
 
-This example shows how to configure Jest to work with Next.js.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+### Stack
 
-## How to Use
+-   Next.js
+-   Material UI
+-   Typescript
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
+### Setup
 
-In your terminal, run the following command:
+#### 1. Clone
 
-```bash
-npx create-next-app --example with-jest with-jest-app
+```
+git clone https://github.com/LuisMelDev/Luis_Melendez_full-frontend.git
 ```
 
-```bash
-yarn create next-app --example with-jest with-jest-app
+#### 2. Install dependencies
+
+```
+npm run install
 ```
 
-```bash
-pnpm create next-app --example with-jest with-jest-app
+or
+
+```
+yarn install
 ```
 
-## Run Jest Tests
+#### 3. ENV
 
-```bash
-npm test
+Get an Spotify Client ID and set callback host on spotify dashboard then generate a `.env.local` file at the project root with the next content:
+
 ```
+NEXT_PUBLIC_SPOTIFY_CALLBACK_HOST=
+NEXT_PUBLIC_SPOTIFY_CLIENT=
+```
+
+#### 4. Execution
+
+```
+npm run dev
+```
+
+or
+
+```
+yarn dev
+```
+
+Open http://localhost:3000 with your browser to see the result.
